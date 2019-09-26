@@ -1,0 +1,207 @@
+% Preamble
+% ---
+\documentclass{article}
+\author{David Johnson}
+\title{\LaTeX{} Template}
+\date{}
+
+% Packages
+% ---
+\usepackage{amsmath} % Advanced math typesetting
+\usepackage[utf8]{inputenc} % Unicode support (Umlauts etc.)
+\usepackage[english]{babel} % Change hyphenation rules
+\usepackage{hyperref} % Add a link to your document
+\usepackage{graphicx} % Add pictures to your document
+\usepackage{listings} % Source code formatting and highlighting
+\usepackage{siunitx} % Required for alignment
+\usepackage{tikz}
+
+\sisetup{
+  round-mode          = places, % Rounds numbers
+  round-precision     = 2, % to 2 places
+}
+
+\begin{document}
+
+        \maketitle{}
+        \tableofcontents{}
+
+        \newpage
+        \listoffigures
+        \listoftables
+
+        \newpage
+        \section{Text goes here} % On top of document hierarchy; automatically numbered
+        \subsection{}
+        \subsubsection{}
+        \paragraph{} % Paragraphs have no numbering
+        \subparagraph{}
+
+        \begin{figure}
+                \caption{Dummy figure}
+        \end{figure}
+
+        \begin{table}
+                \caption{Dummy table}
+        \end{table}
+
+        \begin{table}[h!]
+                \caption{Table with aligned units.}
+                \begin{center}
+                        \label{tab:table1}
+                        \begin{tabular}{l|S|r} % <-- Changed to S here.
+                                \textbf{Value 1} & \textbf{Value 2} & \textbf{Value 3}\\
+                                $\alpha$ & $\beta$ & $\gamma$ \\
+                                \hline
+                                1 & 1110.1 & a\\
+                                2 & 10.1 & b\\
+                                3 & 23.113231 & c\\
+                        \end{tabular}
+                \end{center}
+        \end{table}
+
+        \begin{align}
+                abcde\\
+                f(x) &= x^2\\
+                f'(x) &= 2x\\
+                F(x) &= \int f(2x)dx\\
+                F(x) &= \frac{1}{3}x^3\\
+                I &=    \begin{bmatrix}
+                                1 0\\
+                                0 1
+                        \end{bmatrix}\\
+                \left(\frac{1}{\sqrt{x}}\right)\\
+                \cap\\
+                \cup
+        \end{align}
+
+        \section{Ratios}
+
+        \begin{tikzpicture}
+                \draw (0, 0) node[anchor=north] {$A$}
+                   -- (4, 0) node[midway, below] {$b$} node[anchor=north] {$C$}
+                   -- (4, 4) node[midway, right] {$a$} node[anchor=south] {$B$}
+                   -- (0, 0) node[midway, above] {$h$};
+        \end{tikzpicture}
+
+        \begin{align}
+                \sin \theta &= \frac{a}{h}\\
+                \cos \theta &= \frac{b}{h}\\
+                \tan \theta &= \frac{a}{b} = \frac{\sin \theta}{\cos \theta}\\
+                \cot \theta &= \frac{b}{a} = \frac{1}{\tan \theta} = \frac{\cos \theta}{\sin \theta}\\
+                \sec \theta &= \frac{h}{b} = \frac{1}{\cos \theta}\\
+                \csc \theta &= \frac{h}{a} = \frac{1}{\sin \theta}\\
+        \end{align}
+
+        \section{Pythagorean Identities}
+
+        \begin{align}
+                \sin^2 \theta + \cos^2 \theta &= 1\\
+                \tan^2 \theta + 1 &= \sec^2 \theta\\
+                1 + \cot^2 \theta &= \csc^2 \theta
+        \end{align}
+                
+        \section{Cofunction Identities}
+
+        If $\alpha$ and $\beta$ are complementary ($\alpha + \beta = \ang{90} = \frac{\pi}{2}$), then
+        \begin{align}
+                \sin \alpha &= \cos \beta\\
+                \tan \alpha &= \cot \beta\\
+                \sec \alpha &= \csc \beta
+        \end{align}
+
+        \section{Law of Sines}
+
+        If $\alpha$, $\beta$, and $\gamma$ are the angles of a triangle, $a$, $b$, and $c$ are the sides opposite them respectively, and $R$ is the radius of the circumcircle, then
+        \[
+                \frac{a}{\sin \alpha} = \frac{b}{\sin \beta} = \frac{c}{\sin \gamma} = 2R
+        \]
+
+        \section{Law of Cosines}
+
+        If $\alpha$, $\beta$, and $\gamma$ are the angles of a triangle and $a$, $b$, and $c$ are the sides opposite them respectively, then
+
+        \begin{align}
+                a^2 &= b^2 + c^2 - 2bc \cos \alpha\\
+                b^2 &= c^2 + a^2 - 2ac \cos \beta\\
+                c^2 &= a^2 + b^2 - 2ab \cos \gamma
+        \end{align}
+
+        The last two formulas can be obtained by cyclic permutations of sides $a$, $b$, and $c$ and angles $\alpha$, $\beta$, and $\gamma$.
+
+        \section{Triangle Solving}
+
+        TODO
+
+        \section{Even and Odd functions}
+        
+        A function is \textbf{even} iff, for all $x$, $f(-x) = f(x)$.\\
+        A function is \textbf{odd} iff, for all $x$, $f(-x) = -f(x)$.\\
+        $\cos$ and $\sec$ are even functions.\\
+        $\sin$, $\tan$, $\cot$, and $\csc$ are odd functions.\\
+        If $f(x)$ is any function, then \[ g(x) = \frac{1}{2}(f(x) + f(-x)) \] is an even function and \[ h(x) = \frac{1}{2}(f(x) - f(-x)) \] is an odd function.
+        
+        \begin{align}
+                e^{i \theta} &= \underbrace{\cos \theta}_\text{even} + i \underbrace{\sin \theta}_\text{odd}\\
+                e^{x} &= \underbrace{\cosh x}_\text{even} + \underbrace{\sinh x}_\text{odd}
+        \end{align}
+
+        \section{Sum and Difference of Angles}
+
+        Note that the sum formulas must be symmetric in $\alpha$ and $\beta$ because addition is commutative. The difference formula for $\cos$ is also symmetric because $\cos$ is even, so \[ \cos(\alpha - \beta) = \cos(-(\alpha - \beta)) = \cos(\beta - \alpha) \]
+
+        \begin{align}
+                \sin(\alpha \pm \beta) &= \sin \alpha \cos \beta \pm \cos \alpha \sin \beta\\
+                \cos(\alpha \pm \beta) &= \cos \alpha \cos \beta \mp \sin \alpha \sin \beta\\
+                \tan(\alpha \pm \beta) &= \frac{\tan \alpha \pm \tan \beta}{1 \mp \tan \alpha \tan \beta}
+        \end{align}
+
+        \section{Double Angle}
+
+        \begin{align}
+                \sin 2 \alpha &= 2 \sin \alpha \cos \alpha\\
+                \cos 2 \alpha &= \cos^2 \alpha - \sin^2 \alpha = 2 \cos^2 \alpha - 1 = 1 - 2 \sin^2 \alpha\\
+                \tan 2 \alpha &= \frac{2 \tan \alpha}{1 - \tan^2 \alpha}
+        \end{align}
+
+        \section{Half Angle}
+
+        \begin{align}
+                \sin \frac{\alpha}{2} &= \pm \sqrt{\frac{1 - \cos \alpha}{2}}\\
+                \cos \frac{\alpha}{2} &= \pm \sqrt{\frac{1 + \cos \alpha}{2}}\\
+                \tan \frac{\alpha}{2} &= \frac{\sin \alpha}{1 + \cos \alpha} = \frac{1 - \cos \alpha}{\sin \alpha}
+        \end{align}
+
+        \section{Products to Sums}
+
+        \begin{align}
+                \cos \alpha \cos \beta &= \frac{1}{2} [ \cos(\alpha + \beta) + \cos(\alpha - \beta) ]\\
+                \sin \alpha \sin \beta &= \frac{1}{2} [ \cos(\alpha - \beta) - \cos(\alpha + \beta) ]
+        \end{align}
+        
+        \section{Sums to Products}
+
+        \begin{align}
+                \sin \alpha + \sin \beta &= 2 \sin \frac{\alpha + \beta}{2} \cos \frac{\alpha - \beta}{2}\\
+                \sin \alpha - \sin \beta &= 2 \cos \frac{\alpha + \beta}{2} \sin \frac{\alpha - \beta}{2}\\
+                \cos \alpha + \cos \beta &= 2 \cos \frac{\alpha + \beta}{2} \cos \frac{\alpha - \beta}{2}\\
+                                         &= 2 \cos \frac{\alpha + \beta}{2} \cos \frac{\beta - \alpha}{2}\\
+                \cos \alpha - \cos \beta &= -2 \sin \frac{\alpha + \beta}{2} \sin \frac{\alpha - \beta}{2}\\
+                                         &= 2 \sin \frac{\alpha + \beta}{2} \sin \frac{\beta - \alpha}{2}
+        \end{align}
+
+        \section{Uniformization in terms of $\tan \frac{\alpha}{2}$}
+
+        Let $t = \tan \frac{\alpha}{2}$. Then
+
+        \begin{align}
+                \sin \alpha &= \frac{2t}{1 + t^2}\\
+                \cos \alpha &= \frac{1 - t^2}{1 + t^2}\\
+                \tan \alpha &= \frac{2t}{1 - t^2}\\
+                \cot \alpha &= \frac{1 + t^2}{2t}\\
+                \sec \alpha &= \frac{1 + t^2}{1 - t^2}\\
+                \csc \alpha &= \frac{1 + t^2}{2t}
+        \end{align}
+
+\end{document}
+

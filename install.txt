@@ -1,0 +1,10 @@
+brew cask install basictex
+sudo tlmgr update --self
+sudo tlmgr install latexmk
+
+defaults write -app Skim SKAutoReloadFileUpdate -boolean true
+
+sudo tlmgr install siunitx
+sudo tlmgr install enumitem
+sudo tlmgr install multirow
+

@@ -1,0 +1,56 @@
+% Preamble
+% ---
+\documentclass{article}
+\author{David Johnson}
+\title{Lattice Theory}
+\date{}
+
+% Packages
+% ---
+\usepackage{amsmath} % Advanced math typesetting
+\usepackage{enumitem}
+\usepackage{multirow}
+
+\begin{document}
+
+        \maketitle{}
+        \tableofcontents{}
+
+        \newpage
+        \section{Binary Relation Properties}
+        For $a, b, c \in S$ and $O \subset S \cross S$...
+        \begin{table}[h!]
+                  \label{tab:table1}
+                  \begin{tabular}{l|l|l}
+                        \textbf{Group} & \textbf{Name} & \textbf{Expression}\\
+                        \hline
+                        \multirow{1}{*}{Reflexive} & Reflexive      & $aOa$\\
+                        \hline
+                        \multirow{2}{*}{Symmetric} & Symmetric      & $aOb \leftrightarrow bOa$\\
+                                                   & Anti-symmetric & $aOb \wedge bOa \rightarrow a = b$\\
+                        \hline
+                        \multirow{1}{*}{Transitive} & Transitive    & $aOb \wedge bOc \rightarrow aOc$\\
+                  \end{tabular}
+        \end{table}
+
+        \newpage
+        \section{Definition of a Lattice}
+        \subsection{Partial Order}
+        A partial order is a binary relation that is reflexive, anti-symmetric, and transitive.
+        \begin{align}
+                abcde\\
+                f(x) &= x^2\\
+                f'(x) &= 2x\\
+                F(x) &= \int f(2x)dx\\
+                F(x) &= \frac{1}{3}x^3\\
+                I &=    \begin{bmatrix}
+                                1 0\\
+                                0 1
+                        \end{bmatrix}\\
+                \left(\frac{1}{\sqrt{x}}\right)\\
+                \cap\\
+                \cup
+        \end{align}
+
+\end{document}
+
