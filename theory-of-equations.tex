@@ -1,0 +1,139 @@
+% Preamble
+% ---
+\documentclass{article}
+\author{David Johnson}
+\title{\LaTeX{} Template}
+\date{}
+
+% Packages
+% ---
+\usepackage{array,booktabs}
+\usepackage{amsmath} % Advanced math typesetting
+\usepackage[utf8]{inputenc} % Unicode support (Umlauts etc.)
+\usepackage[english]{babel} % Change hyphenation rules
+\usepackage{hyperref} % Add a link to your document
+\usepackage{graphicx} % Add pictures to your document
+\usepackage{listings} % Source code formatting and highlighting
+\usepackage{siunitx} % Required for alignment
+
+\sisetup{
+  round-mode          = places, % Rounds numbers
+  round-precision     = 2, % to 2 places
+}
+
+\begin{document}
+
+        \maketitle{}
+        \tableofcontents{}
+
+        \newpage
+        \listoffigures
+        \listoftables
+
+        \newpage
+        \section{Text goes here} % On top of document hierarchy; automatically numbered
+        \subsection{}
+        \subsubsection{}
+        \paragraph{} % Paragraphs have no numbering
+        \subparagraph{}
+
+        \begin{figure}
+                \caption{Dummy figure}
+        \end{figure}
+
+        \begin{table}
+                \caption{Dummy table}
+        \end{table}
+
+        \begin{table}[h!]
+                \caption{Table with aligned units.}
+                \begin{center}
+                        \label{tab:table1}
+                        \begin{tabular}{l|S|r} % <-- Changed to S here.
+                                \textbf{Value 1} & \textbf{Value 2} & \textbf{Value 3}\\
+                                $\alpha$ & $\beta$ & $\gamma$ \\
+                                \hline
+                                1 & 1110.1 & a\\
+                                2 & 10.1 & b\\
+                                3 & 23.113231 & c\\
+                        \end{tabular}
+                \end{center}
+        \end{table}
+
+        \section{Detached Coefficients}
+
+        \subsection{Multiplication}
+
+        Multiply $x^2 - x + 1$ times $x^2 + x + 1$.
+        \begin{gather*}
+        \begin{array}{rrrrrrr}
+                       &    &  1 & -1 & 1\\
+                \times &    &  1 &  1 & 1\\
+                \midrule
+                  &    &  1 & -1 & 1\\
+                  &  1 & -1 &  1 \\
+                1 & -1 & 1\\
+                \midrule
+                1 &  0 &  1 &  0 & 1\\
+        \end{array}\\
+        \end{gather*}
+
+        The product is $x^4 + x^2 + 1$.
+
+        \subsection{Division}
+
+        Divide $x^8 + x^7 + 3x^4 - 1$ by $x^4 - 3x^3 + 4x + 1$.
+
+        \begin{gather*}
+        \begin{array}{rrrrrrrrrrrrrr}
+                1 &  1 &  0 &   0 &   3 &    0 &    0 &    0 &  -1 & \multicolumn{1}{|r}{1} & -3 &  0 &  4 &  1\\ \cline{10-14}
+                1 & -3 &  0 &   4 &   1 &      &      &      &     & \multicolumn{1}{|r}{1} &  4 & 12 & 32 & 82\\ \cline{1-5}
+                  &  4 &  0 &  -4 &   2 &    0\\
+                  &  4 & 12 &   0 &  16 &    4\\ \cline{2-6}
+                  &    & 12 &  -4 & -14 &   -4 &    0\\
+                  &    & 12 & -36 &   0 &   48 &   12\\ \cline{3-7}
+                  &    &    &  32 & -14 &  -52 &  -12 &    0\\
+                  &    &    &  32 & -96 &    0 &  128 &   32\\ \cline{4-8}
+                  &    &    &     &  82 &  -52 & -140 &  -32 &  -1\\
+                  &    &    &     &  82 & -246 &    0 &  328 &  82\\ \cline{5-9}
+                  &    &    &     &     &  194 & -140 & -360 & -83\\
+        \end{array}
+        \end{gather*}
+        The quotient is $x^4 + 4x^3 + 12x^2 + 32x + 82$ and the remainder is $194x^3 - 140x^2 - 360x - 83$.
+       
+        \section{Remainder theorem}
+
+        The remainder of $f(x)$ divided by $(x - c)$ is $f(c)$.
+
+        Corrolary. $f(x)$ is divisible by $(x - c)$ iff $f(c) = 0$.
+
+        \subsection{Synthetic Division}
+
+        Example. Divide $3x^6 - 7x^5 + 5x^4 - x^2 - 6x - 8$ by $x + 2$.
+        \begin{gather*}
+        \begin{array}{rrrrrrrr}
+                \left.-2\right) & 3 &  -7 &  5 &   0 &  -1 &   -6 &                       -8\\      
+                                &   &  -6 & 26 & -62 & 124 & -246 &                      504\\
+                \cline{2-8}
+                                & 3 & -13 & 31 & -62 & 123 & -252 & \multicolumn{1}{|r}{496}\\
+        \end{array}
+        \end{gather*}
+
+        The quotient is $3x^5 - 13x^4 + 31x^3 - 62x^2 + 123x - 252$ and the remainder is $496$.
+        \begin{align}
+                abcde\\
+                f(x) &= x^2\\
+                f'(x) &= 2x\\
+                F(x) &= \int f(2x)dx\\
+                F(x) &= \frac{1}{3}x^3\\
+                I &=    \begin{bmatrix}
+                                1 0\\
+                                0 1
+                        \end{bmatrix}\\
+                \left(\frac{1}{\sqrt{x}}\right)\\
+                \cap\\
+                \cup
+        \end{align}
+
+\end{document}
+
