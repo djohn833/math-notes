@@ -1,0 +1,94 @@
+% Preamble
+% ---
+\documentclass{article}
+\author{David Johnson}
+\title{Triangle of Power}
+\date{}
+
+% Packages
+% ---
+\usepackage{amsmath} % Advanced math typesetting
+\usepackage[utf8]{inputenc} % Unicode support (Umlauts etc.)
+\usepackage[english]{babel} % Change hyphenation rules
+\usepackage{hyperref} % Add a link to your document
+\usepackage{graphicx} % Add pictures to your document
+\usepackage{listings} % Source code formatting and highlighting
+\usepackage{siunitx} % Required for alignment
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,calc,through}
+
+\sisetup{
+  round-mode          = places, % Rounds numbers
+  round-precision     = 2, % to 2 places
+}
+
+\begin{document}
+        \newcommand*{\equilateraltriangle}[1]{\node (#1) [regular polygon, regular polygon sides=3, draw, minimum width=40mm] at (0, 0){}}
+
+        \maketitle{}
+        \tableofcontents{}
+
+        \newpage
+
+        \begin{tikzpicture}
+                \equilateraltriangle{tri};
+                \node at (tri.corner 1) [anchor=south]{$3$};
+                \node at (tri.corner 2) [anchor=north]{$2$};
+                \node at (tri.corner 3) [anchor=north]{$8$};
+        \end{tikzpicture}
+
+        \begin{align*}
+                2^3 &= 8\\
+                \sqrt[3]{8} &= 2\\
+                \log_{2} 8 &= 3
+        \end{align*}
+
+        \begin{tikzpicture}
+                \equilateraltriangle{tri};
+                \node at (tri.corner 1) [anchor=south]{exponent};
+                \node at (tri.corner 2) [anchor=north]{base};
+                \node at (tri.corner 3) [anchor=north]{power};
+        \end{tikzpicture}
+       
+        $a$ and $b$ are dummies for bases, $x$ and $y$ are dummies for exponents, and $u$ and $v$ are dummies for the powers (the base raised to the exponent).
+
+        \begin{tikzpicture}
+                \equilateraltriangle{tri};
+                \node at (tri.corner 1) [anchor=south]{$+$};
+                \node at (tri.corner 2) [anchor=north]{constant base};
+                \node at (tri.corner 3) [anchor=north]{$\times$};
+        \end{tikzpicture}
+
+        \begin{align*}
+                a^{x}a^{y} &= a^{x+y}\\
+                \log_a uv &= \log_a u + \log_a v
+        \end{align*}
+
+        \begin{tikzpicture}
+                \equilateraltriangle{tri};
+                \node at (tri.corner 1) [anchor=south]{constant exponent};
+                \node at (tri.corner 2) [anchor=north]{$\times$};
+                \node at (tri.corner 3) [anchor=north]{$\times$};
+        \end{tikzpicture}
+
+        \begin{align*}
+                a^{x}b^{x} &= (ab)^{x}\\
+                \sqrt[x]{u}\sqrt[x]{v} &= \sqrt[x]{uv}
+        \end{align*}
+
+        \begin{tikzpicture}
+                \equilateraltriangle{tri};
+                \node at (tri.corner 1) [anchor=south]{$\oplus$};
+                \node at (tri.corner 2) [anchor=north]{$\times$};
+                \node at (tri.corner 3) [anchor=north]{constant power};
+        \end{tikzpicture}
+        
+        Here, $a \oplus b$ stands for the harmonic mean, $a \oplus b = \frac{1}{\frac{1}{a} + \frac{1}{b}}$..
+
+        \begin{align*}
+                \sqrt[x]{u}\sqrt[y]{u} &= \sqrt[x \oplus y]{u}\\
+                \log_a u \oplus \log_b u &= \log_{ab} u
+        \end{align*}
+\end{document}
+
